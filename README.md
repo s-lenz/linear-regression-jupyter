@@ -3,6 +3,8 @@ The purpose of this assignment is to create two scripts (in R and Python), use l
 
 ## Tools/libraries used
 #Python libraries
+sys
+
 pandas
 matplotlib
 scikit-learn
@@ -11,4 +13,8 @@ scikit-learn
 ggplot2
 
 ## Notes on results
+Resulting graphs can be viewed by either the .png or .html files.
+
 Both the Python and R scripts gave an R^2 value of 0.7852. The R script was able to give more details, including the adjusted R^2 value (0.7583), the F statistic (29.24) and the P-value (0.0006407).
+
+
