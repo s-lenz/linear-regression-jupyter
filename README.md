@@ -4,7 +4,6 @@ The purpose of this assignment is to create two scripts (in R and Python), use l
 ## Tools/libraries used
 #Python libraries
 sys
-
 pandas
 matplotlib
 scikit-learn
