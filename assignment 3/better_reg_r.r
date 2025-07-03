@@ -1,22 +1,26 @@
 # Load libraries
 library(ggplot2)
 
+# Get args
+args <- commandArgs(trailingOnly = TRUE)
+
+filename <- args[1]
+x <- args[2]
+y <- args[3]
+
 # Describe data
-df <- data.frame(
-  x = c(1, 2, 3, 4, 5),
-  y = c(2.1, 4.3, 6.1, 8.0, 10.1)
-)
+df <- read.csv(filename)
 
 # Fit model to data
-model <- lm(y ~ x, data = df)
+model <- lm(as.formula(paste(y, "~", x)), data = df)
 slope <- coef(model)[2]
 intercept <- coef(model)[1]
-r <- cor(df$x, df$y)
+r <- cor(df[[x]], df[[y]])
 pred <- predict(model)
-mse <- mean((df$y - pred)^2)
+mse <- mean((df[[y]] - pred)^2)
 
 # Plot the data
-ggplot(df, aes(x = x, y = y)) +
+ggplot(df, aes_string(x = x, y = y)) +
   geom_point() +
   geom_smooth(method = "lm", se = FALSE, color = "red") +
   annotate("text", x = 1.5, y = max(df$y) - 0.5,
